@@ -1,0 +1,11 @@
+
+CLIENT INFO
+CLIENT ID	4ddf62a287164a2ba14e32fd8f3eca32
+CLIENT SECRET	3b636b75f05b4219859fefc2c98d8a98
+WEBSITE URL	http://veeweeherman.github.io/lightbox-demo/
+REDIRECT URI	http://veeweeherman.github.io/
+SUPPORT EMAIL	vy.hoang.cu@gmail.com
+
+https://api.instagram.com/oauth/authorize/?client_id=CLIENT-ID&redirect_uri=REDIRECT-URI&response_type=code
+
+https://api.instagram.com/oauth/authorize/?client_id=4ddf62a287164a2ba14e32fd8f3eca32&redirect_uri=http://veeweeherman.github.io/&response_type=code
