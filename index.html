@@ -4,7 +4,7 @@
   <meta charset="utf-8">
 
   <title>Vy Cu Lightbox Demo</title>
-
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
@@ -29,5 +29,13 @@
     <input type="hidden" name="format" value="json" />
     <input type="submit" onsubmit="console.log('SUBMITING')"/>
   </form>
+
+
+
+  <div class="lightBoxBG" onclick="closeLightBox()"></div>
+  <div class="lightBox"><img src="kenya.jpg" alt="" /></div>
+  <button type="button" name="button" onclick="activateLightBox()">lightbox</button>
+
+  <script src="lightbox.js"></script>
 </body>
 </html>
