@@ -16,3 +16,14 @@
   display: none;
 
 }
+
+#pkmnImg
+{
+/*background-image: url('http://slam.canoe.ca/WrestlingImagesHarts/bret1.jpg');*/
+background-repeat: no-repeat;
+text-align: center;
+width: 200px;
+height: 200px;
+margin-top: 10px;
+margin-left: 15px;
+}

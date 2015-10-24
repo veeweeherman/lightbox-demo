@@ -13,3 +13,16 @@ var closeLightBox = function() {
   lbBG[0].style.display = "none";
   lb[0].style.display = "none";
 };
+
+
+var quizImagesB = ["kenya.jpg", "istanbul.jpg", "greece.png", "malawi.gif"];
+
+var i = -1;
+function updateImgB(){
+  if (i > quizImagesB.length-1) {i = -1;}
+  i += 1;
+  console.log(i)
+  var url = 'url(' + quizImagesB[i] + ')';
+
+  document.getElementById('pkmnImg').style.backgroundImage=url;
+ }
