@@ -11,26 +11,26 @@
   <h1>Vy Cuuuuuu</h1>
   <a href="https://api.instagram.com/oauth/authorize/?client_id=4ddf62a287164a2ba14e32fd8f3eca32&redirect_uri=http://veeweeherman.github.io/&response_type=code">instagram api</a><br>
 
-  <a href="https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=ea20d74a2a1d64e36fe9ea3957b5e07c&tags='cats'&format=json">flickr api</a><br>
+  <a href="https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=d7b5799416ae2ea346791364f3d8bd7c&tags='cats'&format=json&per_page=5&nojsoncallback=?">flickr api</a><br>
 
-
-  <form action="https://api.instagram.com/oauth/authorize/?method=flickr.photos.search&api_key=ea20d74a2a1d64e36fe9ea3957b5e07c&">
+  <!-- <form action="https://api.instagram.com/oauth/authorize/?method=flickr.photos.search&api_key=ea20d74a2a1d64e36fe9ea3957b5e07c&">
     Get me pics of:<br>
     <input type="text" name="tags" value="cuddle cats" onclick="console.log(value)" onenter="console.log('submitting')">
     <br>
-  </form>
+  </form> -->
 
-  <br><br><br>
+  <br>
 
   <form action="https://api.flickr.com/services/rest/?" method="GET">
     <input type="hidden" name="method" value="flickr.photos.search"  />
-    <input type="hidden" name="api_key" value="ea20d74a2a1d64e36fe9ea3957b5e07c" />
-    <input type="text" name="tags" value="" />
+    <input type="hidden" name="api_key" value="d7b5799416ae2ea346791364f3d8bd7c" />
+    <input type="text" name="tags" value="" id="tags"/>
     <input type="hidden" name="format" value="json" />
-    <input type="submit" onsubmit="console.log('SUBMITING')"/>
+    <input type="hidden" name="per_page" value="10" />
+    <input type="hidden" name="nojsoncallback" value="?" />
+    <input type="submit" onsubmit="console.log('')"/>
+
   </form>
-
-
 
   <div class="lightBoxBG" onclick="closeLightBox()"></div>
   <div class="lightBox"><img src="kenya.jpg" alt="" /></div>
@@ -38,10 +38,18 @@
 
 
 
-  <div id='pkmnImg'>
-</div>
+  <div id='pkmnImg'></div>
+  <input type="button" value="Change the image source" onClick="updateImgB()">
 
-<input type="button" value="Change the image source" onClick="updateImgB()">
+
+
+  <br>
+    search pics of:<input type="text" name="search pics of:" id="usersTags"><br>
+    <button onclick="getJSON(document.getElementById('usersTags').value)">search</button>
+
+
+    <!-- <button onclick="getJSON()">XMLHttpRequest</button> -->
+
 
   <script src="lightbox.js"></script>
 </body>

@@ -62,3 +62,25 @@ https://farm{farm-id}.staticflickr.com/{server-id}/{id}_{secret}.jpg
 https://farm1.staticflickr.com/661/22388330886_de09cf8296.jpg
 {"id":"9945705306","owner":"37873897@N06","secret":"ffd6c977a5","server":"5515","farm":6,"title":"Rotem","ispublic":1,"isfriend":0,"isfamily":0},
 https://farm6.staticflickr.com/5515/9945705306_ffd6c977a5.jpg
+
+
+SAMPLE RETURN OBJECT FROM FLICKR:
+jsonFlickrApi({"photos":
+{   "page":1,
+    "pages":126825,
+    "perpage":2,
+    "total":"253649",
+    "photo":
+        [
+          {   "id":"13696559965",
+              "owner":"88642461@N05",
+              "secret":"46c35401f8",
+              "server":"3738",
+              "farm":4,
+              "title":"The Booby Trap",
+              "ispublic":1,
+              "isfriend":0,
+              "isfamily":0},
+    {"id":"21820608034","owner":"127702952@N06","secret":"9c4cfb33f0","server":"5655","farm":6,"title":"Dog","ispublic":1,"isfriend":0,"isfamily":0}
+          ]},
+    "stat":"ok"})
