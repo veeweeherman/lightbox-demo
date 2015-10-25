@@ -32,13 +32,13 @@ var quizImagesB = ["kenya.jpg", "istanbul.jpg", "greece.png", "malawi.gif"];
 
 
 var respData = null;
-var flickrPhotos = [];
+  var flickrPhotos = [];
 var getJSON = function(tag) {
-  var url = "https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=d7b5799416ae2ea346791364f3d8bd7c&tags='"+tag+"'&format=json&per_page=10&nojsoncallback=?"
-  console.log('the url is: ',url);
+  var query = "https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=d7b5799416ae2ea346791364f3d8bd7c&tags='"+tag+"'&format=json&per_page=4&nojsoncallback=?"
+  console.log('the query is: ',query);
   return new Promise(function(resolve, reject) {
     var xhr = new XMLHttpRequest();
-    xhr.open('get', url, true);
+    xhr.open('get', query, true);
     xhr.responseType = 'json';
     xhr.onload = function() {
       var status = xhr.status;
@@ -57,12 +57,12 @@ var getJSON = function(tag) {
   }).then(function(){
     var photosArr = respData.photos.photo;
     for (var i = 0; i < photosArr.length; i++) {
-      var url = "https://farm" +
+      var photoURL = "https://farm" +
       photosArr[i].farm +".static.flickr.com/"+
       photosArr[i].server +"/"+
       photosArr[i].id +"_"+
       photosArr[i].secret +".jpg";
-      flickrPhotos.push(url);
+      flickrPhotos.push(photoURL);
     };
     console.log(flickrPhotos);
 
@@ -75,12 +75,20 @@ var i = -1;
 function updateImgB(){
   if (i >= flickrPhotos.length) {i = -1;}
   i += 1;
-  console.log(i)
+  console.log('incrementing',i);
   var url = 'url(' + flickrPhotos[i] + ')';
 
   document.getElementById('pkmnImg').style.backgroundImage=url;
  }
 
+function prev(){
+  if (i <= -1) {i = flickrPhotos.length;}
+  i -= 1;
+  console.log('decrementing',i);
+  var url = 'url(' + flickrPhotos[i] + ')';
+
+  document.getElementById('pkmnImg').style.backgroundImage=url;
+}
 // usersTags === the text the user input in the form
 
 // var makeFlickrRequestURL = function(something){
