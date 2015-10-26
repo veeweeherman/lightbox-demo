@@ -1,21 +1,46 @@
-.lightBoxBG{
-  position: absolute;
-  top: 0;
-  left: 0;
-  opacity: 0.5;
-  display: none;
-  background-color: #000000;
-  height: 100%;
-  width: 100%;
-}
-
-.lightBox{
+/*
+#thumbnails{
   position: absolute;
   top: 25%;
   left: 40%;
-  display: none;
 
 }
+*/
+.lightbox{
+  /** Default lightbox to hidden */
+  	display: none;
+
+  	/** Position and style */
+  	position: fixed;
+  	z-index: 999;
+  	width: 100%;
+  	height: 100%;
+  	text-align: center;
+  	top: 0;
+  	left: 0;
+    opacity: 0.5; /* effects opacity of entire lightbox element, including the picture!!!*/
+  	background: rgb(15, 14, 173); /* bright blue, to easily see if LB background is working */
+    /*rgba(0,0,0,0.00000001);*/
+
+}
+
+.lightbox img {
+	/** Pad the lightbox image */
+	max-width: 90%;
+	max-height: 80%;
+	margin-top: 2%;
+  opacity: 1;
+}
+
+
+.lightbox:target {
+	/** Remove default browser outline */
+	outline: none;
+
+	/** Unhide lightbox **/
+	display: block;
+}
+
 
 #pkmnImg
 {

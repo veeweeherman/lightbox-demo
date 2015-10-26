@@ -1,35 +1,27 @@
-var activateLightBox = function(){
-  var lbBG = document.getElementsByClassName('lightBoxBG');
-  var lb = document.getElementsByClassName('lightBox');
-
-  lbBG[0].style.display = "block";
-  lb[0].style.display = "block";
-};
-
-var closeLightBox = function() {
-  var lbBG = document.getElementsByClassName('lightBoxBG');
-  var lb = document.getElementsByClassName('lightBox');
-
-  lbBG[0].style.display = "none";
-  lb[0].style.display = "none";
-};
-
-
-var quizImagesB = ["kenya.jpg", "istanbul.jpg", "greece.png", "malawi.gif"];
-
-// var i = -1;
-// function updateImgB(){
-//   if (i >= quizImagesB.length) {i = -1;}
-//   i += 1;
-//   console.log(i)
-//   var url = 'url(' + quizImagesB[i] + ')';
+// var activateLightBox = function(){
+//   console.log(this);
+//   var lbBG = document.getElementById('lightBoxBG');
+//   // var lb = document.getElementById('displayPhotos');
 //
-//   document.getElementById('pkmnImg').style.backgroundImage=url;
-//  }
+//   // var lb = document.getElementById('lightBox');
+//   lbBG.insertBefore(this,endOflb)
+//   lbBG.style.display = "block";
+//   // lb.style.display = "block";
+// };
+//
+// var closeLightBox = function() {
+//   var lbBG = document.getElementById('lightBoxBG');
+//   var lb = document.getElementById('displayPhotos');
+//
+//   lbBG[0].style.display = "none";
+//   // lb.style.display = "none";
+// };
+
+
 
 /********************** using raw xml to GET photos *************************/
 // https://mathiasbynens.be/notes/xhr-responsetype-json
-
+var testFunc = function() {console.log(this);}
 
 var respData = null;
   var flickrPhotos = [];
@@ -63,8 +55,42 @@ var getJSON = function(tag) {
       photosArr[i].id +"_"+
       photosArr[i].secret +".jpg";
       flickrPhotos.push(photoURL);
-    };
+    }; //<img src="kenya.jpg" alt="" />
     console.log(flickrPhotos);
+
+
+  }).then(function(){
+    // takes URLs from flickrPhotos array and assigns to an img src
+    var thumbnails = document.getElementById('thumbnails');
+    var lbContainer = document.getElementById('lbContainer');
+    for (var i = 0; i < flickrPhotos.length; i++) {
+      // for making <a href> and <img src> for each photo thumbnail
+      var thumbnailAtag = document.createElement("a");
+      thumbnailAtag.href = "#img" + (i+1);
+      var thumbnailImage = document.createElement("img");
+      // thumbnailImage.class = "thumbs";
+      thumbnailImage.setAttribute('class','thumbs');
+      thumbnailImage.src = flickrPhotos[i];
+      thumbnailAtag.appendChild(thumbnailImage);
+      console.log(thumbnailAtag);
+      thumbnails.insertBefore(thumbnailAtag,endThumbnails)
+      // for make <a href> and <img src> for each photo in the lbContainer
+      var lbAtag = document.createElement("a");
+      lbAtag.href = "#_";
+      // lbAtag.class = "lightbox";
+      lbAtag.setAttribute('class','lightbox');
+      lbAtag.id = "img" + (i+1);
+      var image = document.createElement("img");
+      // image.class = "currentLBphoto";
+      image.setAttribute('class','currentLBphoto');
+      image.src = flickrPhotos[i];
+      lbAtag.appendChild(image);
+      // console.log(lbAtag);
+      lbContainer.insertBefore(lbAtag,endlbContainer)
+
+    }
+
+
 
 
   });
@@ -72,13 +98,13 @@ var getJSON = function(tag) {
 
 
 var i = -1;
-function updateImgB(){
+function next(){
   if (i >= flickrPhotos.length) {i = -1;}
   i += 1;
   console.log('incrementing',i);
   var url = 'url(' + flickrPhotos[i] + ')';
 
-  document.getElementById('pkmnImg').style.backgroundImage=url;
+  document.getElementById('prevnext').style.backgroundImage=url;
  }
 
 function prev(){
@@ -87,7 +113,7 @@ function prev(){
   console.log('decrementing',i);
   var url = 'url(' + flickrPhotos[i] + ')';
 
-  document.getElementById('pkmnImg').style.backgroundImage=url;
+  document.getElementById('prevnext').style.backgroundImage=url;
 }
 // usersTags === the text the user input in the form
 
