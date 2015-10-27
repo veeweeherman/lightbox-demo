@@ -1,16 +1,16 @@
-/*
-#thumbnails{
-  position: absolute;
-  top: 25%;
-  left: 40%;
-
+body {
+  font-family: sans-serif;
+  text-align: center;
+  background: rgb(15, 102, 102);
 }
-*/
-.lightbox{
-  /** Default lightbox to hidden */
-  	display: none;
 
-  	/** Position and style */
+/* style for search form and button */
+.search{
+  margin-bottom: 5%;
+}
+/** hides lightbox by default */
+.lightbox{
+  	display: none;
   	position: fixed;
   	z-index: 999;
   	width: 100%;
@@ -18,37 +18,36 @@
   	text-align: center;
   	top: 0;
   	left: 0;
-    opacity: 0.5; /* effects opacity of entire lightbox element, including the picture!!!*/
-  	background: rgb(15, 14, 173); /* bright blue, to easily see if LB background is working */
-    /*rgba(0,0,0,0.00000001);*/
-
+  	background: linear-gradient( 45deg, rgb(15, 102, 102), rgba(69, 33, 92, 0.75) );
 }
 
-.lightbox img {
-	/** Pad the lightbox image */
-	max-width: 90%;
-	max-height: 80%;
-	margin-top: 2%;
-  opacity: 1;
-}
-
-
+/* unhides lightbox */
 .lightbox:target {
-	/** Remove default browser outline */
-	outline: none;
-
-	/** Unhide lightbox **/
 	display: block;
 }
 
+/* position and style of each image in lightbox */
+.lightbox img {
+	max-width: 90%;
+	max-height: 80%;
+	margin-top: 5%;
+  border-radius: 2%;
+}
 
-#pkmnImg
-{
-/*background-image: url('http://slam.canoe.ca/WrestlingImagesHarts/bret1.jpg');*/
-background-repeat: no-repeat;
-text-align: center;
-width: 200px;
-height: 200px;
-margin-top: 10px;
-margin-left: 15px;
+/* style for div that holds all thumbnails */
+#thumbnails{
+  background-color: rgba(69, 33, 92, 0.75);
+  padding: 5% 10%;
+  border-radius: 5%;
+  top: 25%;
+  left: 40%;
+
+}
+
+/* style for each image thumbnail */
+.thumbs{
+  display: inline;
+  border-radius: 4%;
+  max-width: 200px;
+  max-height: 200px;
 }
